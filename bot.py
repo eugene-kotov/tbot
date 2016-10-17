@@ -5,6 +5,10 @@ token = "227015250:AAFoA2N9aze8NzfTq7wLq8C3uThmXxJLM5E"
 bot = telebot.TeleBot(token)
 
 @bot.message_handler(content_types=["text"])
+def repeat_all_messages(message): # Название функции не играет никакой роли, в принципе
+    bot.send_message(message.chat.id, message.text)
+
+@bot.message_handler(content_types=["text"])
 def default_test(message):
     keyboard = types.InlineKeyboardMarkup()
     url_button = types.InlineKeyboardButton(text="Перейти на Яндекс", url="https://ya.ru")
